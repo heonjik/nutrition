@@ -1,0 +1,7 @@
+Flask
+pymysql
+numpy
+pandas
+matplotlib
+boto3
+ultralytics
