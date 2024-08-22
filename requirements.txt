@@ -3,5 +3,7 @@ pymysql
 numpy
 pandas
 matplotlib
-boto3
-ultralytics
+wn
+nltk
+sentence-transformers
+torchvision

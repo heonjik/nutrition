@@ -1,12 +1,16 @@
 import pymysql
 from pymysql.cursors import DictCursor
+import os
+from dotenv import load_dotenv
+
+load_dotenv('config/.env.db')
 
 DB_CONFIG = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'd',
-    'database': 'web_app',
-    'port': 3306
+    'host': os.environ.get('DB_HOST'),
+    'user': os.environ.get('DB_USER'),
+    'password': os.environ.get('DB_PASSWORD'),
+    'database': os.environ.get('DB_NAME'),
+    'port': int(os.environ.get("PORT"))
 }
 
 class DBFunctions:
