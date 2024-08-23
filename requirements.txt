@@ -1,9 +1,10 @@
 Flask
 pymysql
+nltk
+transformers
 numpy
 pandas
 matplotlib
 wn
-nltk
 sentence-transformers
 torchvision
