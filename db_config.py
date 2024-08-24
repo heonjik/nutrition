@@ -2,6 +2,7 @@ import pymysql
 from pymysql.cursors import DictCursor
 import os
 from dotenv import load_dotenv
+import pandas as pd
 
 load_dotenv('config/.env.db')
 
@@ -49,3 +50,12 @@ class UserAuth:
             with connection.cursor() as cursor:
                 cursor.execute(write_sql, (username, password))
                 connection.commit()
+
+class Report:
+    def weekly_report():
+        sql = 'SELECT * FROM meals WHERE date >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)'
+        with DBFunctions.get_db_connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(sql)
+                data = cursor.fetchall()
+                df = pd.DataFrame(data, columns=['id', 'filename', 'ingredients', 'nutrition', 'date'])
