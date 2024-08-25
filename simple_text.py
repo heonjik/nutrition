@@ -57,7 +57,6 @@ class Readability:
         return word_dict
     
     def freq(word_dict: dict) -> dict:
-        nltk.FreqDist
         return {}
     
 
