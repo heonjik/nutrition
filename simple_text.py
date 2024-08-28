@@ -3,6 +3,9 @@ from nltk.corpus import wordnet as wn
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
+nltk.download('punkt_tab')
+nltk.download('averaged_perceptron_tagger_eng')
+
 ABB = {'JJ': 'a', 'JJR': 'a', 'JJS': 'a',
        'NN': 'n', 'NNS': 'n', 'NNP': 'n', 'NNPS': 'n',
        'VB': 'v', 'VBG': 'v', 'VBD': 'v', 'VBN': 'v', 'VBP': 'v', 'VBZ': 'v',
@@ -69,10 +72,14 @@ if __name__=='__main__':
                 combined method for readability assessment. Results show that the proposed method outperforms
                 classical approaches in readability assessment.'''
     word_list = ['evaluating', 'linguistic']
+    p = '''The loquacious professor delivered an esoteric lecture, replete with arcane terminology,
+            leaving the students in a state of bemusement.'''
+    ws = ['loquacious', 'esoteric', 'arcane', 'bemusement']
     
-    word_dict = Syns.extract_lines(paragraph, word_list)
+    word_dict = Syns.extract_lines(p, ws)
     word_dict = Syns.get_synonyms(word_dict)
-    word_dict = Readability.cos_sim(word_dict)
+    #word_dict = Readability.cos_sim(word_dict)
     for word in word_dict:
         for syn in word_dict[word]['synonyms']:
-            print(f"Word: '{word}'\nPOS: {word_dict[word]['pos']}\nsynonyms: '{syn}'\nCosine Similarity Score: {word_dict[word]['synonyms'][syn]}\n")
+            print(f"Word: '{word}'\nPOS: {word_dict[word]['pos']}\nsynonyms: '{syn}'\n")
+            #print(f"Cosine Similarity Score: {word_dict[word]['synonyms'][syn]}")
