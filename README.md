@@ -3,10 +3,8 @@
 ### Objective
 * Create a web application that translate words to easier synonyms.
 ### Scope
-| Month    | Savings |
-| -------- | ------- |
-| Must have:  | Users input the text and highlight the words.//Translate the highlighted words to easier synonyms. |
-| Nice to have: | Collect the highlighted words and level them.//Analyze their level. Give a review session. |
+| **Must have:**  | Users input the text and highlight the words.<br>Translate the highlighted words to easier synonyms. |
+| **Nice to have:** | Collect the highlighted words and level them.<br>Analyze their level. Give a review session. |
 ## Sources
 * WordNet API
 * BERT (NLP)
